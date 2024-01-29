@@ -1,0 +1,66 @@
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+.containerB{
+    width: 40%;
+    height: 240px;
+    background-color: #1E2432;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    color: #4D5562;
+    border: solid #4D5562 0.2px ;
+}
+.boxTranslateBtnA{
+    padding: 8px;
+    gap: 10px;
+}
+
+.boxTranslateBtnA button{
+    border-radius: 6px;
+    padding: 8px;
+    text-align: center;
+    margin-left: 5px;
+    background-color: #1E2432;
+    color: #F9FAFB;
+    border: solid #4D5562 0.5px;
+}
+
+.boxTranslateBtnB{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+}
+#textTranslate{
+    width: 85%;
+    height: 6rem;
+    background-color: #1E2432;
+    border-style: none;
+    margin: auto;
+    color: #F9FAFB;
+}
+.boxTranslateBtnB button{
+    text-align: center;
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: 12px;
+    border-radius: 8px;
+    background-color: #1E2432;
+    color: #F9FAFB;
+    border: solid #4D5562 1px;
+}
+#btnTranslate{
+    background-color: #3662E3;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+    border: solid #F9FAFB 0.2px;
+    padding: 8px;
+}
