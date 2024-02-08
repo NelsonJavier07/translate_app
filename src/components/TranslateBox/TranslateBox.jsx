@@ -6,8 +6,17 @@ import '../TranslateBox/TranslateBox.css'
 export const TranslateBox = () => {
 
     let [words, setWords] = useState('');
-    const [languaje, setLanguaje] = useState('')
+    const [languajeOrigin, setLanguajeOrigin] = useState('')
+    const [languajeDestination, setLanguajeDestination] = useState('')
     const [traductor, setTraductor] = useState([])
+
+    let [btnClickEn, setBtnClickEn] = useState(false)
+    let [btnClickEs, setBtnClickEs] = useState(false)
+    let [btnClickFr, setBtnClickFr] = useState(false)
+
+    let [btnClickEnII, setBtnClickEnII] = useState(false)
+    let [btnClickEsII, setBtnClickEsII] = useState(false)
+    let [btnClickFrII, setBtnClickFrII] = useState(false)
 
 
     const wordValidation = () =>{
@@ -15,13 +24,9 @@ export const TranslateBox = () => {
         return words.length > 500 ? console.log("La palabra es mayor a 500 caracteres") : null;
     }
 
-   const english = 'en|en';
-   const englishToItalian = 'en|it';
-   const englishToSpanish = 'en|es';
-
     
     const translateBtn = async() =>{
-    const urlBase = `https://api.mymemory.translated.net/get?q=${words}&langpair=${languaje}`
+    const urlBase = `https://api.mymemory.translated.net/get?q=${words}&langpair=${languajeOrigin}|${languajeDestination}`
         
         return axios.get(urlBase)
                 .then((res) =>{ return setTraductor(res.data.responseData.translatedText)})
@@ -30,20 +35,48 @@ export const TranslateBox = () => {
 
 
     useEffect(() =>{
-
         translateBtn
     })
 
+    const btnActiveEn = () => { 
+        return btnClickEn && !btnClickEs && !btnClickFr && languajeOrigin == 'en' ? 'btnActive' : 'btnInactive'
+    }
+        
+    const btnActiveFr = () =>{
+        return !btnClickEn && !btnClickEs && btnClickFr && languajeOrigin == 'fr' ? 'btnActive' : 'btnInactive'
+    }
 
+    const btnActiveEs = () =>{
+        return !btnClickEn && btnClickEs && !btnClickFr && languajeOrigin == 'es' ? 'btnActive' : 'btnInactive'
+    }
+
+
+
+    
+    const btnActiveEnII = () => { 
+        return btnClickEnII && !btnClickEsII && !btnClickFrII && languajeDestination == 'en' ? 'btnActive' : 'btnInactive'
+    }
+        
+    const btnActiveFrII = () =>{
+        return !btnClickEnII && !btnClickEsII && btnClickFrII && languajeDestination == 'fr' ? 'btnActive' : 'btnInactive'
+    }
+
+    const btnActiveEsII = () =>{
+        return !btnClickEnII && btnClickEsII && !btnClickFrII && languajeDestination == 'es' ? 'btnActive' : 'btnInactive'
+    }
+
+    console.log('Español', btnActiveEsII());
+    console.log('Ingles', btnActiveEnII());
+    console.log('Frances', btnActiveFrII());
 
     return(
         <div className='container'>
             <div className="containerB">
                 <div className="boxTranslateBtnA">
                     <span>Detected Languaje</span>
-                    <button onClick={() =>{return setLanguaje(english)}}>English</button>
-                    <button onClick={() =>{return setLanguaje(englishToItalian)}} >French</button>
-                    <button onClick={() =>{return setLanguaje(englishToSpanish)}}>Spanish<img src="public/images/expand_down.svg" alt="desplegar" /></button>
+                    <button className={`${btnActiveEn()}`} onClick={() => {setBtnClickEn(true); return setLanguajeOrigin('en')}}>English</button>
+                    <button className={`${btnActiveFr()}`} onClick={() => {setBtnClickFr(true); return setLanguajeOrigin('fr')}} >French</button>
+                    <button className={`${btnActiveEs()}`} onClick={() => {setBtnClickEs(true); return setLanguajeOrigin('es')}}>Spanish<img src="public/images/expand_down.svg" alt="desplegar" /></button>
                 </div>
 
                 <textarea 
@@ -72,9 +105,9 @@ export const TranslateBox = () => {
 
             <div className="containerB">
                 <div className="boxTranslateBtnA">
-                    <button>English</button>
-                    <button>French</button>
-                    <button>Spanish<img src="public/images/expand_down.svg" alt="desplegar" /></button>
+                    <button className={`${btnActiveEnII()}`} onClick={() => {setBtnClickEnII(true); return setLanguajeDestination('en')}}>English</button>
+                    <button className={`${btnActiveEsII()}`} onClick={() => {setBtnClickEsII(true); return setLanguajeDestination('es')}}>Spanish</button>
+                    <button className={`${btnActiveFrII()}`} onClick={() => {setBtnClickFrII(true); return setLanguajeDestination('fr')}}>French<img src="public/images/expand_down.svg" alt="desplegar" /></button>
                 </div>
 
                 <textarea 
@@ -95,3 +128,4 @@ export const TranslateBox = () => {
         </div>
     )
 }
+

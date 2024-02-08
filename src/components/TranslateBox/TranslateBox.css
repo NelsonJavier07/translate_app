@@ -25,9 +25,10 @@
     padding: 8px;
     text-align: center;
     margin-left: 5px;
-    background-color: #1E2432;
     color: #F9FAFB;
-    border: solid #4D5562 0.5px;
+    border-style: none;
+    cursor: pointer;
+    /* background-color: rgba(0, 0, 0, 0); */
 }
 
 .boxTranslateBtnB{
@@ -45,6 +46,10 @@
     margin: auto;
     color: #F9FAFB;
 }
+#textTranslate:focus{
+    outline: none;
+}
+
 .boxTranslateBtnB button{
     text-align: center;
     padding: 5px;
@@ -53,7 +58,8 @@
     border-radius: 8px;
     background-color: #1E2432;
     color: #F9FAFB;
-    border: solid #4D5562 1px;
+    border: solid #F9FAFB 0.5px;
+    cursor: pointer;
 }
 #btnTranslate{
     background-color: #3662E3;
@@ -64,3 +70,24 @@
     border: solid #F9FAFB 0.2px;
     padding: 8px;
 }
+
+.btnActive{
+    background-color: #4D5562;
+}
+.btnInactive{
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/* .btnActiveFr{
+    background-color: #4D5562;
+}
+.btnInactiveFr{
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.btnActiveEs{
+    background-color: #4D5562;
+}
+.btnInactiveEs{
+    background-color: rgba(0, 0, 0, 0);
+} */
