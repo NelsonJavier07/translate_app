@@ -72,9 +72,11 @@
 }
 
 .btnActive{
+    transition: 0.5s;
     background-color: #4D5562;
 }
 .btnInactive{
+    transition: 0.5s;
     background-color: rgba(0, 0, 0, 0);
 }
 
