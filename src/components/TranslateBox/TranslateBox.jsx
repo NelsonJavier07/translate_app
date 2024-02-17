@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { textToSpeechA, textToSpeechB } from '../voiceSynthesizer/textToSpeech.js'
 import '../TranslateBox/TranslateBox.css'
 
 // import { translateBtn } from "../../data/dataTranslate.js";
@@ -23,6 +24,7 @@ export const TranslateBox = () => {
     let [btnClickEsII, setBtnClickEsII] = useState(false)
     let [btnClickFrII, setBtnClickFrII] = useState(false)
 
+    // const synth = window.speechSynthesis
     
     const translateBtn = async() =>{
     const urlBase = `https://api.mymemory.translated.net/get?q=${words}&langpair=${languajeOrigin}|${languajeDestination}`
@@ -69,7 +71,7 @@ export const TranslateBox = () => {
                 <span className='containerB_count'>{`${words.length}/500`}</span>
                 <div className='boxTranslateBtnB'>
                     <section>
-                        <button><img src='public/images/sound_max_fill.svg' alt="altavoz" /></button>
+                        <button onClick={() => textToSpeechA(words)}><img src='public/images/sound_max_fill.svg' alt="altavoz" /></button>
                         <CopyToClipboard text={words}>
                             <button><img src="public/images/copy.svg" alt="copiar" /></button>
                         </CopyToClipboard>
@@ -105,7 +107,7 @@ export const TranslateBox = () => {
 
                 <div className='boxTranslateBtnB'>
                     <section>
-                        <button><img src='public/images/sound_max_fill.svg' alt="altavoz" /></button>
+                        <button onClick={() => textToSpeechB(traductor)}><img src='public/images/sound_max_fill.svg' alt="altavoz" /></button>
                         <button><img src="public/images/copy.svg" alt="copiar" /></button>
                     </section>
                 </div>
