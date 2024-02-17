@@ -2,9 +2,9 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import { textToSpeechA, textToSpeechB } from '../voiceSynthesizer/textToSpeech.js'
+import { interchangeIdiome } from '../interchangeIdiome/interchangeIdiome.js'
 import '../TranslateBox/TranslateBox.css'
 
-// import { translateBtn } from "../../data/dataTranslate.js";
 import { btnActiveEn, btnActiveFr, btnActiveEs, btnActiveEnII, btnActiveEsII, btnActiveFrII } from "../btnSelect/btnSelect.js";
 import { wordValidation } from '../wordValidation/wordValidation.js'
 
@@ -23,8 +23,6 @@ export const TranslateBox = () => {
     let [btnClickEnII, setBtnClickEnII] = useState(false)
     let [btnClickEsII, setBtnClickEsII] = useState(false)
     let [btnClickFrII, setBtnClickFrII] = useState(false)
-
-    // const synth = window.speechSynthesis
     
     const translateBtn = async() =>{
     const urlBase = `https://api.mymemory.translated.net/get?q=${words}&langpair=${languajeOrigin}|${languajeDestination}`
@@ -42,11 +40,9 @@ export const TranslateBox = () => {
                 .catch((err) =>{console.log(err);})
     }
 
-    
     useEffect(() =>{        
         translateBtn
     })
-
 
     return(
         <div className='container'>
@@ -93,7 +89,7 @@ export const TranslateBox = () => {
                     </div>
                     <div>
                         <CopyToClipboard text={traductor}>
-                            <button className='btnCopy'><img src="public/images/horizontal_top_left_main.svg" alt="copy" /></button>
+                            <button className='btnCopy' onClick={() => interchangeIdiome({traductor, words, setTraductor, setWords})}><img src="public/images/horizontal_top_left_main.svg" alt="copy" /></button>
                         </CopyToClipboard>
                     </div>
                 </div>

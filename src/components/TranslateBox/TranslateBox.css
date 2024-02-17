@@ -51,7 +51,13 @@
     border: solid #F9FAFB 0.5px;
     cursor: pointer;
 }
-
+.btnCopy:active{
+    background-color: #F9FAFB;
+    color: #1E2432;
+}
+.btnCopy:hover{
+    box-shadow: 1px 2px 4px #737b87;
+}
 
 .boxTranslateBtnB{
     width: 100%;
@@ -82,6 +88,13 @@
     color: #F9FAFB;
     border: solid #F9FAFB 0.5px;
     cursor: pointer;
+}
+.boxTranslateBtnB button:active{
+    background-color: #F9FAFB;
+    color: #1E2432;
+}
+.boxTranslateBtnB button:hover{
+    box-shadow: 1px 2px 4px #737b87;
 }
 .containerB_count{
     margin-left: 80%;
