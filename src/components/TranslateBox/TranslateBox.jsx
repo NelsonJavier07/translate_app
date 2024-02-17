@@ -1,7 +1,9 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 import '../TranslateBox/TranslateBox.css'
 
+// import { translateBtn } from "../../data/dataTranslate.js";
 import { btnActiveEn, btnActiveFr, btnActiveEs, btnActiveEnII, btnActiveEsII, btnActiveFrII } from "../btnSelect/btnSelect.js";
 import { wordValidation } from '../wordValidation/wordValidation.js'
 
@@ -26,22 +28,20 @@ export const TranslateBox = () => {
     const urlBase = `https://api.mymemory.translated.net/get?q=${words}&langpair=${languajeOrigin}|${languajeDestination}`
         
         return axios.get(urlBase)
-                .then((res) =>{ return setTraductor(res.data.responseData.translatedText),
-                    
-                    setTimeout(() => { return( 
+                .then((res) =>{ return setTraductor(res.data.responseData.translatedText),( 
                         setBtnClickEnII(false), 
                         setBtnClickEsII(false), 
                         setBtnClickFrII(false),
                         setBtnClickEn(false),
                         setBtnClickEs(false),
                         setBtnClickFr(false)
-                        )}, 2000)
+                        )
                     })
                 .catch((err) =>{console.log(err);})
     }
 
-
-    useEffect(() =>{
+    
+    useEffect(() =>{        
         translateBtn
     })
 
@@ -65,12 +65,14 @@ export const TranslateBox = () => {
                         setWords(e.target.value)
                     }}
                 >
-                </textarea>
-                <span>{`${words.length}/500`}</span>
+                </textarea> 
+                <span className='containerB_count'>{`${words.length}/500`}</span>
                 <div className='boxTranslateBtnB'>
                     <section>
                         <button><img src='public/images/sound_max_fill.svg' alt="altavoz" /></button>
-                        <button><img src="public/images/copy.svg" alt="copiar" /></button>
+                        <CopyToClipboard text={words}>
+                            <button><img src="public/images/copy.svg" alt="copiar" /></button>
+                        </CopyToClipboard>
                     </section>
                     <section>
                         <button id='btnTranslate' onClick={() => translateBtn()} ><img src="public/images/sort_alfa.svg" alt="alfa" />Translate</button>
@@ -81,17 +83,23 @@ export const TranslateBox = () => {
                         {/* parte del segundo cuadro */}
 
             <div className="containerB">
-                <div className="boxTranslateBtnA">
-                    <button className={`${btnActiveEnII({btnClickEnII, btnClickEsII, btnClickFrII, languajeDestination})}`} onClick={() => {setBtnClickEnII(true); return setLanguajeDestination('en')}}>English</button>
-                    <button className={`${btnActiveEsII({btnClickEnII, btnClickEsII, btnClickFrII, languajeDestination})}`} onClick={() => {setBtnClickEsII(true); return setLanguajeDestination('es')}}>Spanish</button>
-                    <button className={`${btnActiveFrII({btnClickEnII, btnClickEsII, btnClickFrII, languajeDestination})}`} onClick={() => {setBtnClickFrII(true); return setLanguajeDestination('fr')}}>French<img src="public/images/expand_down.svg" alt="desplegar" /></button>
+                <div className='containerBbtn'>
+                    <div className="boxTranslateBtnA">
+                        <button className={`${btnActiveEnII({btnClickEnII, btnClickEsII, btnClickFrII, languajeDestination})}`} onClick={() => {setBtnClickEnII(true); return setLanguajeDestination('en')}}>English</button>
+                        <button className={`${btnActiveEsII({btnClickEnII, btnClickEsII, btnClickFrII, languajeDestination})}`} onClick={() => {setBtnClickEsII(true); return setLanguajeDestination('es')}}>Spanish</button>
+                        <button className={`${btnActiveFrII({btnClickEnII, btnClickEsII, btnClickFrII, languajeDestination})}`} onClick={() => {setBtnClickFrII(true); return setLanguajeDestination('fr')}}>French<img src="public/images/expand_down.svg" alt="desplegar" /></button>
+                    </div>
+                    <div>
+                        <CopyToClipboard text={traductor}>
+                            <button className='btnCopy'><img src="public/images/horizontal_top_left_main.svg" alt="copy" /></button>
+                        </CopyToClipboard>
+                    </div>
                 </div>
-
                 <textarea 
                     name="textTranslate" 
                     id="textTranslate"
                     value={traductor}
-                    // onChange={() => handleTraduction}
+                    onChange={() => translateBtn}
                 >
                 </textarea>
 

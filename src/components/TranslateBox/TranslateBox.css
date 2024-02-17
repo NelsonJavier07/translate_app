@@ -15,7 +15,17 @@
     color: #4D5562;
     border: solid #4D5562 0.2px ;
 }
+.containerBbtn{
+    width: 100%;
+    border-bottom: solid 0.8px #4D5562;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
 .boxTranslateBtnA{
+    border-bottom: solid 0.8px #4D5562;
     padding: 8px;
     gap: 10px;
 }
@@ -30,6 +40,18 @@
     cursor: pointer;
     /* background-color: rgba(0, 0, 0, 0); */
 }
+.btnCopy{
+    text-align: center;
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: 12px;
+    border-radius: 8px;
+    background-color: #1E2432;
+    color: #F9FAFB;
+    border: solid #F9FAFB 0.5px;
+    cursor: pointer;
+}
+
 
 .boxTranslateBtnB{
     width: 100%;
@@ -61,6 +83,9 @@
     border: solid #F9FAFB 0.5px;
     cursor: pointer;
 }
+.containerB_count{
+    margin-left: 80%;
+}
 #btnTranslate{
     background-color: #3662E3;
     display: flex;
@@ -79,6 +104,8 @@
     transition: 0.5s;
     background-color: rgba(0, 0, 0, 0);
 }
+
+
 
 /* .btnActiveFr{
     background-color: #4D5562;
