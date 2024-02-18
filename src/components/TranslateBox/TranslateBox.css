@@ -118,18 +118,17 @@
     background-color: rgba(0, 0, 0, 0);
 }
 
+@media screen and (max-width: 640px) {
+    .container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
 
+    .containerB{
+        width: 85%;
+        height: 240px;
+    }
 
-/* .btnActiveFr{
-    background-color: #4D5562;
 }
-.btnInactiveFr{
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.btnActiveEs{
-    background-color: #4D5562;
-}
-.btnInactiveEs{
-    background-color: rgba(0, 0, 0, 0);
-} */
