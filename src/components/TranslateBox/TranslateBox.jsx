@@ -51,7 +51,7 @@ export const TranslateBox = () => {
                     <span>Detected Languaje</span>
                     <button className={`${btnActiveEn({btnClickEn, btnClickEs, btnClickFr, languajeOrigin})}`} onClick={() => {setBtnClickEn(true); return setLanguajeOrigin('en')}}>English</button>
                     <button className={`${btnActiveFr({btnClickEn, btnClickEs, btnClickFr, languajeOrigin})}`} onClick={() => {setBtnClickFr(true); return setLanguajeOrigin('fr')}} >French</button>
-                    <button className={`${btnActiveEs({btnClickEn, btnClickEs, btnClickFr, languajeOrigin})}`} onClick={() => {setBtnClickEs(true); return setLanguajeOrigin('es')}}>Spanish<img src="public/images/expand_down.svg" alt="desplegar" /></button>
+                    <button className={`${btnActiveEs({btnClickEn, btnClickEs, btnClickFr, languajeOrigin})}`} onClick={() => {setBtnClickEs(true); return setLanguajeOrigin('es')}}>Spanish<img src="images/expand_down.svg" alt="desplegar" /></button>
                 </div>
 
                 <textarea 
