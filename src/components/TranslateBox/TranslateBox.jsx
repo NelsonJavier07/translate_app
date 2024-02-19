@@ -67,7 +67,7 @@ export const TranslateBox = () => {
                 <span className='containerB_count'>{`${words.length}/500`}</span>
                 <div className='boxTranslateBtnB'>
                     <section>
-                        <button onClick={() => textToSpeechA(words)}><img src='public/images/sound_max_fill.svg' alt="altavoz" /></button>
+                        <button onClick={() => textToSpeechA(words)}><img src='/public/images/sound_max_fill.svg' alt="altavoz" /></button>
                         <CopyToClipboard text={words}>
                             <button><img src="public/images/copy.svg" alt="copiar" /></button>
                         </CopyToClipboard>
