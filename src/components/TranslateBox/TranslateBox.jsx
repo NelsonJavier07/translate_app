@@ -67,13 +67,13 @@ export const TranslateBox = () => {
                 <span className='containerB_count'>{`${words.length}/500`}</span>
                 <div className='boxTranslateBtnB'>
                     <section>
-                        <button onClick={() => textToSpeechA(words)}><img src='/public/images/sound_max_fill.svg' alt="altavoz" /></button>
+                        <button onClick={() => textToSpeechA(words)}><img src='images/sound_max_fill.svg' alt="altavoz" /></button>
                         <CopyToClipboard text={words}>
-                            <button><img src="public/images/copy.svg" alt="copiar" /></button>
+                            <button><img src="images/copy.svg" alt="copiar" /></button>
                         </CopyToClipboard>
                     </section>
                     <section>
-                        <button id='btnTranslate' onClick={() => translateBtn()} ><img src="public/images/sort_alfa.svg" alt="alfa" />Translate</button>
+                        <button id='btnTranslate' onClick={() => translateBtn()} ><img src="images/sort_alfa.svg" alt="alfa" />Translate</button>
                     </section>
                 </div>
             </div>
@@ -85,11 +85,11 @@ export const TranslateBox = () => {
                     <div className="boxTranslateBtnA">
                         <button className={`${btnActiveEnII({btnClickEnII, btnClickEsII, btnClickFrII, languajeDestination})}`} onClick={() => {setBtnClickEnII(true); return setLanguajeDestination('en')}}>English</button>
                         <button className={`${btnActiveEsII({btnClickEnII, btnClickEsII, btnClickFrII, languajeDestination})}`} onClick={() => {setBtnClickEsII(true); return setLanguajeDestination('es')}}>Spanish</button>
-                        <button className={`${btnActiveFrII({btnClickEnII, btnClickEsII, btnClickFrII, languajeDestination})}`} onClick={() => {setBtnClickFrII(true); return setLanguajeDestination('fr')}}>French<img src="public/images/expand_down.svg" alt="desplegar" /></button>
+                        <button className={`${btnActiveFrII({btnClickEnII, btnClickEsII, btnClickFrII, languajeDestination})}`} onClick={() => {setBtnClickFrII(true); return setLanguajeDestination('fr')}}>French<img src="images/expand_down.svg" alt="desplegar" /></button>
                     </div>
                     <div>
                         <CopyToClipboard text={traductor}>
-                            <button className='btnCopy' onClick={() => interchangeIdiome({traductor, words, setTraductor, setWords})}><img src="public/images/horizontal_top_left_main.svg" alt="copy" /></button>
+                            <button className='btnCopy' onClick={() => interchangeIdiome({traductor, words, setTraductor, setWords})}><img src="images/horizontal_top_left_main.svg" alt="copy" /></button>
                         </CopyToClipboard>
                     </div>
                 </div>
@@ -103,8 +103,8 @@ export const TranslateBox = () => {
 
                 <div className='boxTranslateBtnB'>
                     <section>
-                        <button onClick={() => textToSpeechB(traductor)}><img src='public/images/sound_max_fill.svg' alt="altavoz" /></button>
-                        <button><img src="public/images/copy.svg" alt="copiar" /></button>
+                        <button onClick={() => textToSpeechB(traductor)}><img src='images/sound_max_fill.svg' alt="altavoz" /></button>
+                        <button><img src="images/copy.svg" alt="copiar" /></button>
                     </section>
                 </div>
             </div>
