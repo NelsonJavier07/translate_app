@@ -11,7 +11,7 @@ import { wordValidation } from '../wordValidation/wordValidation.js'
 
 export const TranslateBox = () => {
 
-    let [words, setWords] = useState('Hello how are you?');
+    let [words, setWords] = useState('Hello, how are you?');
     let [languajeOrigin, setLanguajeOrigin] = useState('')
     let [languajeDestination, setLanguajeDestination] = useState('')
     const [traductor, setTraductor] = useState([])
